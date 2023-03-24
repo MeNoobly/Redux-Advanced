@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PostContainer from './components/PostContainer';
+import PostContainer2 from './components/PostContainer2.';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
-import { userSlice } from './store/reducers/UserSlice';
+import { fetchUsers } from './store/reducers/ActionCreators';
 
 function App() {
-  const { count } = useAppSelector(state => state.userReducer);
-  const { increment } = userSlice.actions;
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+  // const { users, error, isLoading } = useAppSelector(state => state.userReducer);
 
+  // useEffect(() => {
+  //   dispatch(fetchUsers());
+  // }, [dispatch])
+  
   return (
     <div>
-      <h1>{count}</h1>
+      {/* {isLoading && <h1>Идёт загрузка...</h1>}
+      {error && <h1>{error}</h1>}
+      {JSON.stringify(users, null, 2)} */}
+      <div style={{display: "flex"}}>
+        <PostContainer/>
+        <PostContainer2/> 
+      </div>
     </div>
   );
 }
